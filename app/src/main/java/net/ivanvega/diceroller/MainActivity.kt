@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -65,7 +66,10 @@ private fun getRandomDiceImage(): Int {
 
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
-    var result  by remember { mutableStateOf(1)}
+//    var result  by remember { mutableStateOf(1)}
+    var imagenUnoRoller by remember { mutableStateOf(R.drawable.dice_1) }
+    var imagenDosRoller by remember { mutableStateOf(R.drawable.dice_2) }
+
     var cajatexto by remember { mutableStateOf("") }
     Column (
         modifier = modifier,
@@ -79,8 +83,14 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
 //            5 -> R.drawable.dice_5
 //            else -> R.drawable.dice_6
 //        }
-        Image(painter = painterResource(imageResource),
-            contentDescription = stringResource(R.string.imagen))
+
+        Row() {
+            Image(painter = painterResource(imagenUnoRoller),
+                contentDescription = stringResource(R.string.imagen))
+
+            Image(painter = painterResource(imagenDosRoller),
+                contentDescription = stringResource(R.string.imagen))
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick =
