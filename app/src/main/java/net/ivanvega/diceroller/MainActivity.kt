@@ -95,8 +95,9 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick =
             {
-                result = (1..6).random()
-                Log.i("XXXMainActivity", "Button Clicked $result")
+                imagenUnoRoller = getRandomDiceImage()
+                imagenDosRoller = getRandomDiceImage()
+                Log.i("XXXMainActivity", "Button Clicked $imagenUnoRoller, $imagenDosRoller")
             }
         ) {
             Text(text = stringResource(R.string.roll))
