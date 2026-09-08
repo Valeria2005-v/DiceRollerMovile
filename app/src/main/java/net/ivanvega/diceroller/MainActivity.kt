@@ -52,6 +52,17 @@ fun DiceRollerApp() {
     )
 }
 
+private fun getRandomDiceImage(): Int {
+    return when ((1..6).random()) {
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
+    }
+}
+
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
     var result  by remember { mutableStateOf(1)}
@@ -60,14 +71,14 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val imageResource = when (result) {
-            1 -> R.drawable.dice_1
-            2 -> R.drawable.dice_2
-            3 -> R.drawable.dice_3
-            4 -> R.drawable.dice_4
-            5 -> R.drawable.dice_5
-            else -> R.drawable.dice_6
-        }
+//        val imageResource = when (result) {
+//            1 -> R.drawable.dice_1
+//            2 -> R.drawable.dice_2
+//            3 -> R.drawable.dice_3
+//            4 -> R.drawable.dice_4
+//            5 -> R.drawable.dice_5
+//            else -> R.drawable.dice_6
+//        }
         Image(painter = painterResource(imageResource),
             contentDescription = stringResource(R.string.imagen))
 
